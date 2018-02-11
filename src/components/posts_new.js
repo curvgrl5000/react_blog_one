@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { createPost } from '../actions/index';
 import { Link } from 'react-router';
@@ -11,6 +11,32 @@ import { reduxForm } from 'redux-form';
 
 
 class PostsNew extends Component {	
+	// Here we are using the PropTypes that is imported from react
+	// to ensure we can change the context of the link on the submit action
+	// This is done to improve the User Experience and to manage the outcome
+	// of a successful posting of a new blog.
+	// It is like this.props, but we're looking for the 'router' property
+	// in the parent, which will allow us to grab the correct context
+	// to link back when it meets a condition. It will use: this.context.router
+	// to find the correct 'router' -- which is in index.js as <Router..>
+	static contextTypes = {
+		router: PropTypes.object
+	};
+
+	// this was turned into a helper function
+	// so that when its successfully created, it 
+	// .then send the user to index or home or ('/')
+	onSubmit(props) {
+		this.props.createPost(props)
+		  .then(() => {
+		  	// blog has been created,
+		  	// So we navigate the user to index
+		  	// We navigate by calling 'this.context.router.push'
+		  	// with the new path to navigate to.
+		  	this.context.router.push('/');
+		  });
+	}
+
 	render() {
 		
 		// handleSubmit is a function that is 
@@ -37,7 +63,7 @@ class PostsNew extends Component {
 		
 		return (
 			<div className="main">
-			  <form onSubmit={handleSubmit(this.props.createPost)}>
+			  <form onSubmit={handleSubmit( this.onSubmit.bind(this) )}>
 					<h2>Create a New Post to Share</h2>
 					
 					<div className={` form-group ${title.touched && title.invalid ? 'has-danger' : '' } `}>
