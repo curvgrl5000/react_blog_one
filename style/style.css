@@ -1,3 +1,76 @@
+body {
+    background-color: #dee4ec !important;
+    padding: 1em;
+}
+
+a {
+    text-decoration: none !important;;
+    color: #1692c5 !important;
+}
+
+.list-group-item.gradcolor a:focus, .list-group-item.gradcolor a:hover, .list-group-item.gradcolor:hover {
+    color: #032f53 !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+    -webkit-transition: background-color 2s ease-out;
+    -moz-transition: background-color 2s ease-out;
+    -o-transition: background-color 2s ease-out;
+    transition: color 2s ease-out !important;
+    background-color: #89c036;
+}
+.btn-primary {
+    color: #fff !important;
+    background-color: #0275d8;
+    border-color: #0275d8;
+}
+
+.btn-danger {
+    color: #fff !important;
+    background-color: #d94fbe !important;
+    border-color: #d94fbe !important;
+}
+
+.btn-danger:hover {
+    color: #fff;
+    background-color: #b843a1 !important;
+    border-color: #b843a1 !important;
+}
+
+.has-danger .form-control {
+    border-color: #d94fbe !important;
+}
+
+.has-danger .checkbox, .has-danger .checkbox-inline, .has-danger .form-control-label, .has-danger .radio, .has-danger .radio-inline, .has-danger .text-help, .has-danger.checkbox label, .has-danger.checkbox-inline label, .has-danger.radio label, .has-danger.radio-inline label {
+    color: #d94fbe !important;;
+}
+
+
+h2 {
+    font-size: 2rem;
+    color: #1692c5 !important;;
+}
+
+.pull-xs-right {
+    float: right!important;
+    padding: inherit;
+}
+
 form a {
 	margin-left: 1.2em;
+}
+
+span.b.tall {
+    font-weight: 300;
+    font-size: 2em;
+}
+
+.list-group-item.gradcolor {
+  background-color: #92c93e;
+}
+
+span.pull-xs-right {
+    text-transform: uppercase;
+    letter-spacing: .23em;
+    font-weight: 400;
+    color: aliceblue;
 }
